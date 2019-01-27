@@ -1,5 +1,11 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
+#
+# CMake build directories
+android-arm64/
+android-armv7/
+x86desktop-build/
+
 
 *~
 *.autosave
