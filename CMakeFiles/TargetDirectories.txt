@@ -1,0 +1,4 @@
+/home/eddy/projects/iotctl/CMakeFiles/rebuild_cache.dir
+/home/eddy/projects/iotctl/CMakeFiles/iotctl.dir
+/home/eddy/projects/iotctl/CMakeFiles/edit_cache.dir
+/home/eddy/projects/iotctl/CMakeFiles/iotctl_autogen.dir

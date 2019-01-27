@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="iotctl"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\Qt5.12.0\;CMake Files\..\..\Qt5.12.0\5.12.0\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Quick\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Network\;CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iotctl">
+				<Option output="/home/eddy/projects/iotctl/iotctl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/home/eddy/projects/iotctl"/>
+					<Add directory="/home/eddy/projects/iotctl/iotctl_autogen/include"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtCore"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/./mkspecs/android-clang"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtQuick"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtQml"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtNetwork"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtGui"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/opt/android-ndk/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 iotctl"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iotctl/fast">
+				<Option output="/home/eddy/projects/iotctl/iotctl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_NO_DEBUG"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/home/eddy/projects/iotctl"/>
+					<Add directory="/home/eddy/projects/iotctl/iotctl_autogen/include"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtCore"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/./mkspecs/android-clang"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtQuick"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtQml"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtNetwork"/>
+					<Add directory="/home/eddy/Qt5.12.0/5.12.0/android_arm64_v8a/include/QtGui"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib64/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../include/c++/8.2.1/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/opt/android-ndk/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 iotctl/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iotctl_autogen">
+				<Option working_dir="/home/eddy/projects/iotctl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 iotctl_autogen"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/eddy/projects/iotctl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/eddy/projects/iotctl/iotctl_autogen/EWIEGA46WW/qrc_qml.cpp">
+			<Option target="iotctl"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/iotctl_autogen/EWIEGA46WW/qrc_qml.cpp.rule">
+			<Option target="iotctl"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/iotctl_autogen/mocs_compilation.cpp">
+			<Option target="iotctl"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/main.cpp">
+			<Option target="iotctl"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/qml.qrc">
+			<Option target="iotctl"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/qml.qrc">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Quick/Qt5QuickConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Quick/Qt5QuickConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Quick/Qt5Quick_QAndroidSGVideoNodeFactoryPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5QmlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QDebugMessageServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QLocalClientConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebugServerFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebuggerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlInspectorServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugConnectorFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlPreviewServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQmlProfilerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QQuickProfilerAdapterFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Qml/Qt5Qml_QTcpServerConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Network/Qt5Network_QAndroidBearerEnginePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/eddy/projects/iotctl/../../Qt5.12.0/5.12.0/android_arm64_v8a/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\Qt5.12.0\5.12.0\android_arm64_v8a\lib\cmake\Qt5Gui\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
