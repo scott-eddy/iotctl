@@ -4,7 +4,10 @@
 # CMake build directories
 android-arm64/
 android-armv7/
+manual_build/
 x86desktop-build/
+
+*.user
 
 
 *~
