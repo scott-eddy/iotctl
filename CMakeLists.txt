@@ -11,13 +11,22 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+message(STATUS " ABI is: ${ANDROID_ABI}")
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Android" AND NOT DEFINED ANDROID_SDK_ROOT)
-    message(FATAL_ERROR "ANDROID_SDK_ROOT build target specified. Must be one of <TODO>")
-    message(STATUS "Android NDK is: ${CMAKE_ANDROID_NDK}")
-else()
-    message(STATUS "Building for: ${CMAKE_SYSTEM_NAME}, ${CMAKE_ANDROID_ARCH_ABI}")
+if(ANDROID_ABI STREQUAL "armeabi-v7a") 
+    set(QT_Android_ABI_DIR "android_armv7")
 endif()
+
+message(STATUS "Android ABI: ${QT_Android_ABI_DIR}")
+set(Qt5Core_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Core")
+set(Qt5Gui_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Gui")
+set(Qt5Network_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Network")
+set(Qt5Qml_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Qml")
+set(Qt5Quick_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Quick")
+set(Qt5_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5")
+
+message(STATUS "Qt5_DIR: ${Qt5_DIR}")
+list(APPEND CMAKE_PREFIX_PATH "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5")
 
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
