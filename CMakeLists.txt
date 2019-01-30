@@ -11,10 +11,20 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-message(STATUS " ABI is: ${ANDROID_ABI}")
+message(STATUS "ABI is: ${ANDROID_ABI}")
+message(STATUS "STD C++ is: ${ANDROID_STL}")
+message(STATUS "C++ Std include dirs are: ${CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES}")
+message(STATUS "C Std include dirs are: ${CMAKE_C_STANDARD_INCLUDE_DIRECTORIES}")
+message(STATUS "Sysroot is: ${CMAKE_SYSROOT}")
+message(STATUS "C++ compiler is: ${CMAKE_CXX_COMPILER}")
+message(STATUS "C++ compiler flags: ${CMAKE_CXX_FLAGS}")
+message(STATUS "C++ Linker flags: ${CMAKE_EXE_LINKER_FLAGS}")
 
 if(ANDROID_ABI STREQUAL "armeabi-v7a") 
     set(QT_Android_ABI_DIR "android_armv7")
+    # Explicitly include the system headers as passing --sysroot does not actually
+    # Allow clang to find them
+    # http://lists.llvm.org/pipermail/cfe-users/2016-March/000923.html
 endif()
 
 message(STATUS "Android ABI: ${QT_Android_ABI_DIR}")
