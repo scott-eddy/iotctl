@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
   message(STATUS "ABI is: ${ANDROID_ABI}")
   message(STATUS "STD C++ is: ${ANDROID_STL}")
+  include(cmake/qt-android-mk-apk.cmake)
 
   if(ANDROID_ABI STREQUAL "armeabi-v7a")
     set(QT_Android_ABI_DIR "android_armv7")
@@ -30,10 +31,20 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
   list(APPEND CMAKE_PREFIX_PATH "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5")
 endif()
 
-
-
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
-add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
+    add_library(${PROJECT_NAME} SHARED "main.cpp" "qml.qrc")
+else()
+    add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
+endif()
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Quick)
+
+qt_android_build_apk(
+    TARGET ${PROJECT_NAME}
+    PACKAGE_NAME org.example.QmlCmakeDemo
+    QML_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}
+    ANDROID_EXTRA_FILES ${CMAKE_CURRENT_SOURCE_DIR}/android
+)
