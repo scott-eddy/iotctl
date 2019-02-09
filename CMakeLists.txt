@@ -19,7 +19,7 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
   if(ANDROID_ABI STREQUAL "armeabi-v7a")
     set(QT_Android_ABI_DIR "android_armv7")
   endif()
-
+  get_filename_component(QT_INSTALL_ROOT "${QT_INSTALL_ROOT}" ABSOLUTE)
   set(Qt5Core_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Core")
   set(Qt5Gui_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Gui")
   set(Qt5Network_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Network")
@@ -46,5 +46,5 @@ qt_android_build_apk(
     TARGET ${PROJECT_NAME}
     PACKAGE_NAME org.example.QmlCmakeDemo
     QML_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}
-    ANDROID_EXTRA_FILES ${CMAKE_CURRENT_SOURCE_DIR}/android
+    ANDROID_EXTRA_FILES ${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/src/android/templates/
 )

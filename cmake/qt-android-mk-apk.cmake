@@ -1,10 +1,11 @@
-# Stollen from https://martin.rpdev.net/2018/08/04/building-android-projects-with-qt-creator-and-cmake.html  
-
 include(CMakeParseArguments)
 
 set(QT_ANDROID_MK_APK_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 function(qt_android_build_apk)
+    ####
+    # Adapted from https://martin.rpdev.net/2018/08/04/building-android-projects-with-qt-creator-and-cmake.html
+    ###
     set(options)
     set(oneValueArgs
         TARGET PACKAGE_NAME ANDROID_EXTRA_FILES QML_ROOT_PATH
@@ -26,22 +27,11 @@ function(qt_android_build_apk)
         set(APK_QML_ROOT_PATH $<TARGET_FILE_DIR:${APK_TARGET}>)
     endif()
 
-    # Get he toolchain prefix, i.e. the folder name within the
-    # toolchains/ folder without the compiler version
-    # APK_NDK_TOOLCHAIN_PREFIX
-    #message("DEBUG ANDROID NDK: ${CMAKE_ANDROID_NDK}")
-    #file(RELATIVE_PATH APK_NDK_TOOLCHAIN_PREFIX ${CMAKE_ANDROID_NDK} ${CMAKE_CXX_COMPILER})
-    #string(REPLACE "/" ";" APK_NDK_TOOLCHAIN_PREFIX ${APK_NDK_TOOLCHAIN_PREFIX})
-    #list(GET APK_NDK_TOOLCHAIN_PREFIX 1 APK_NDK_TOOLCHAIN_PREFIX)
-    #message("DEBUG CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION: ${CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION}")
-    #string(LENGTH "-${CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION}" VERSION_LENGTH)
-    #string(LENGTH "${APK_NDK_TOOLCHAIN_PREFIX}" FOLDER_LENGTH)
-    #message("DEBUG FOLDER_LENGTH: ${FOLDER_LENGTH}")
-    #message("DEBUG VERSION_LENGTH: ${VERSION_LENGTH}")
-    #math(EXPR PREFIX_LENGTH ${FOLDER_LENGTH}-${VERSION_LENGTH})
-    #message("DEBUG APK_NDK_TOOLCHAIN_PREFIX: ${APK_NDK_TOOLCHAIN_PREFIX}")
-    #message("DEBUG PREFIX_LENGTH: ${PREFIX_LENGTH}")
-    #string(SUBSTRING "${APK_NDK_TOOLCHAIN_PREFIX}" 0 ${PREFIX_LENGTH} APK_NDK_TOOLCHAIN_PREFIX)
+    # Get the toolchain prefix which is where androiddeployqt will look for bin-utilities
+    file(RELATIVE_PATH APK_NDK_TOOLCHAIN_PREFIX ${CMAKE_ANDROID_NDK} ${CMAKE_CXX_COMPILER})
+    # Create a list from the relative path
+    string(REPLACE "/" ";" APK_NDK_TOOLCHAIN_PREFIX ${APK_NDK_TOOLCHAIN_PREFIX})
+    list(GET APK_NDK_TOOLCHAIN_PREFIX 1 APK_NDK_TOOLCHAIN_PREFIX)
 
     # Get path to the target:
     set(APK_TARGET_OUTPUT_FILENAME $<TARGET_FILE:${APK_TARGET}>)
@@ -49,12 +39,29 @@ function(qt_android_build_apk)
     # Get Android SDK build tools version:
     message("SDK ENVIRONMENT VARIABLE $ENV{ANDROID_SDK}")
     set(ANDROID_SDK_ROOT $ENV{ANDROID_SDK})
-    message("DEBUG ${ANDROID_SDK_ROOT}")
     if(NOT APK_SDK_BUILD_TOOLS_VERSION)
         file(GLOB sdk_versions RELATIVE ${ANDROID_SDK_ROOT}/build-tools
             ${ANDROID_SDK_ROOT}/build-tools/*)
         list(GET sdk_versions -1 APK_SDK_BUILD_TOOLS_VERSION)
     endif()
+
+    # Get the full path to the android STL
+    # ANDROID_STL_FULL_PATH
+    # Extract STL static vs .so (naming convention is <type>_<shared || static>
+    string(REPLACE "_" ";" STL_POSTFIX_LIST ${ANDROID_STL})
+    list(GET STL_POSTFIX_LIST 1 STL_POSTFIX)
+    if(STL_POSTFIX STREQUAL "shared")
+        set(STL_POSTFIX ".so")
+    elseif(STL_POSTFIX STREQUAL "static")
+        set(STL_POSTFIX ".a")
+    else()
+        message(FATAL_ERROR "Unrecognized STL library post-fix from ${ANDROID_STL}. Expected 'static ' or  'shared' but parsed ${STL_POSTFIX}")
+    endif()
+    # Joint location of all STL sources relative to NDK
+    set(ANDROID_CXX_SOURCE_LOCATION "sources/cxx-stl/llvm-libc++/libs")
+    message("DEBUG ${CMAKE_ANDROID_NDK}")
+    set(ANDROID_STL_FULL_PATH "${CMAKE_ANDROID_NDK}/${ANDROID_CXX_SOURCE_LOCATION}/${ANDROID_ABI}/lib${ANDROID_STL}${STL_POSTFIX}")
+    message(STATUS "APK generation with ANDROID_STL_FULL_PATH=${ANDROID_STL_FULL_PATH}")
 
     # Step 1: Create an intermediate config file. At this point,
     # the generator expressions will we use are not yet resolved.
@@ -72,10 +79,11 @@ function(qt_android_build_apk)
     # Step 3: Create a custom target which will build our APK:
     set(APK_DIR ${CMAKE_CURRENT_BINARY_DIR}/${APK_TARGET}-apk-build)
     if(NOT APK_ANDROID_EXTRA_FILES)
-        set(
-            APK_ANDROID_EXTRA_FILES
-            ${QT5_INSTALL_PREFIX}/src/android/templates/)
+      message(FATAL_ERROR "APK_ANDROID_EXTRA_FILES not set. Suggest using those in ${QT5_INSTALL_PREFIX}/src/android/templates/")
+    else()
+      message(STATUS "APK generation with APK_ANDROID_EXTRA_FILES=${APK_ANDROID_EXTRA_FILES}")
     endif()
+
     if(JAVA_HOME)
         set(ANDROIDDEPLOYQT_EXTRA_ARGS
             ${ANDROIDDEPLOYQT_EXTRA_ARGS} --jdk '${JAVA_HOME}')
@@ -87,9 +95,11 @@ function(qt_android_build_apk)
     else()
         set(APK_FILENAME ${APK_TARGET}-apk-build-debug.apk)
     endif()
+
+    message(STATUS "APK_TARGET: ${APK_TARGET}")
     add_custom_target(
         ${APK_TARGET}-apk
-        COMMAND ${CMAKE_COMMAND} -E remove_directory ${APK_DIR}
+        #COMMAND ${CMAKE_COMMAND} -E remove_directory ${APK_DIR}
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${QT5_INSTALL_PREFIX}/src/android/templates/
             ${APK_DIR}
