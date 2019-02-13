@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-
 project(iotctl LANGUAGES CXX)
-
-
 set(CMAKE_VERBOSE_MAKEFILE, ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -33,18 +30,24 @@ endif()
 
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
-
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
     add_library(${PROJECT_NAME} SHARED "main.cpp" "qml.qrc")
+    qt_android_build_apk(
+      TARGET ${PROJECT_NAME}
+      PACKAGE_NAME org.example.QmlCmakeDemo
+      QML_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}
+      ANDROID_EXTRA_FILES ${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/src/android/templates/
+    )
 else()
     add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
 endif()
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+    include)
+target_sources(${PROJECT_NAME}
+  PRIVATE
+  src/iotctl_light.cpp
+  src/iotctl_light_control.cpp
+  )
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Quick)
-
-qt_android_build_apk(
-    TARGET ${PROJECT_NAME}
-    PACKAGE_NAME org.example.QmlCmakeDemo
-    QML_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}
-    ANDROID_EXTRA_FILES ${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/src/android/templates/
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Quick Qt5::Qml Qt5::Gui)
