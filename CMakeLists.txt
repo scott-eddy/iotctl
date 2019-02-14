@@ -39,7 +39,9 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
       ANDROID_EXTRA_FILES ${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/src/android/templates/
     )
 else()
-    add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
+    add_executable(${PROJECT_NAME}
+      main.cpp
+      qml.qrc)
 endif()
 target_include_directories(${PROJECT_NAME}
     PUBLIC

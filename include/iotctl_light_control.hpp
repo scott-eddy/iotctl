@@ -16,6 +16,10 @@ public:
   explicit LightControl(QObject *parent=nullptr);
 
   /**
+   * @brief virtual DTOR
+   */
+  virtual ~LightControl() = default;
+  /**
    * @brief Accessor
    * @return brightness_
    */

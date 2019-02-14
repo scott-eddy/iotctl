@@ -15,4 +15,5 @@ void LightControl::SetBrightness(int value) {
   emit BrightnessChanged();
 }
 
+#include "moc_iotctl_light_control.cpp"
 } // iotctl
