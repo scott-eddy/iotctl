@@ -8,27 +8,17 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+message(STATUS "Compiling for ${CMAKE_SYSTEM_NAME}")
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
   message(STATUS "ABI is: ${ANDROID_ABI}")
   message(STATUS "STD C++ is: ${ANDROID_STL}")
   include(cmake/qt-android-mk-apk.cmake)
-
-  if(ANDROID_ABI STREQUAL "armeabi-v7a")
-    set(QT_Android_ABI_DIR "android_armv7")
-  endif()
-  get_filename_component(QT_INSTALL_ROOT "${QT_INSTALL_ROOT}" ABSOLUTE)
-  set(Qt5Core_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Core")
-  set(Qt5Gui_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Gui")
-  set(Qt5Network_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Network")
-  set(Qt5Qml_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Qml")
-  set(Qt5Quick_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5Quick")
-  set(Qt5_DIR "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5")
-
-  message(STATUS "Qt5_DIR: ${Qt5_DIR}")
-  list(APPEND CMAKE_PREFIX_PATH "${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/lib/cmake/Qt5")
+  # TODO: Require this is passed in
+  message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 endif()
 
-find_package(Qt5 COMPONENTS Core Quick REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick Gui Network REQUIRED)
+get_filename_component(QT5_INSTALL_PREFIX "${Qt5Core_DIR}/../../.." ABSOLUTE)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
     add_library(${PROJECT_NAME} SHARED "main.cpp" "qml.qrc")
@@ -36,7 +26,7 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
       TARGET ${PROJECT_NAME}
       PACKAGE_NAME org.example.QmlCmakeDemo
       QML_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}
-      ANDROID_EXTRA_FILES ${QT_INSTALL_ROOT}/${QT_Android_ABI_DIR}/src/android/templates/
+      ANDROID_EXTRA_FILES ${QT5_INSTALL_PREFIX}/src/android/templates/
     )
 else()
     add_executable(${PROJECT_NAME}

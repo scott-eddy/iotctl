@@ -20,7 +20,7 @@ function(qt_android_build_apk)
     # Qt5Core_DIR now points to $Qt5InstallPrefix/lib/cmake/Qt5Core, so
     # we get the parent directory three times:
     get_filename_component(QT5_INSTALL_PREFIX "${Qt5Core_DIR}/../../.." ABSOLUTE)
-    message("Qt5 installed in ${QT5_INSTALL_PREFIX}")
+    message(STATUS "Qt5 installed in ${QT5_INSTALL_PREFIX}")
 
     # Adjust QML root path if not set:
     if(NOT APK_QML_ROOT_PATH)
@@ -97,6 +97,8 @@ function(qt_android_build_apk)
     endif()
 
     message(STATUS "APK_TARGET: ${APK_TARGET}")
+    message(STATUS "APK_DIR: ${APK_DIR}")
+    message(STATUS "APK_ANDROID_EXTRA_FILES: ${APK_ANDROID_EXTRA_FILES}")
     add_custom_target(
         ${APK_TARGET}-apk
         #COMMAND ${CMAKE_COMMAND} -E remove_directory ${APK_DIR}
