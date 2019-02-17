@@ -59,7 +59,6 @@ function(qt_android_build_apk)
     endif()
     # Joint location of all STL sources relative to NDK
     set(ANDROID_CXX_SOURCE_LOCATION "sources/cxx-stl/llvm-libc++/libs")
-    message("DEBUG ${CMAKE_ANDROID_NDK}")
     set(ANDROID_STL_FULL_PATH "${CMAKE_ANDROID_NDK}/${ANDROID_CXX_SOURCE_LOCATION}/${ANDROID_ABI}/lib${ANDROID_STL}${STL_POSTFIX}")
     message(STATUS "APK generation with ANDROID_STL_FULL_PATH=${ANDROID_STL_FULL_PATH}")
 
@@ -124,10 +123,12 @@ function(qt_android_build_apk)
 
     # Step 4: Create a custom target which pushes the created APK onto
     # the device.
+    message(STATUS "APK_FILENAME: ${APK_FILENAME}")
+    # TODO differentiate betwen release and debug apk install builds?
     add_custom_target(
         ${APK_TARGET}-apk-install
         COMMAND ${ANDROID_SDK_ROOT}/platform-tools/adb install -r
-            ${APK_DIR}/build/outputs/apk/${APK_FILENAME}
+            ${APK_DIR}/build/outputs/apk/debug/${APK_FILENAME}
         DEPENDS
             ${APK_TARGET}-apk
     )
