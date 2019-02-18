@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-project(iotctl LANGUAGES CXX)
+project(iotctl_app LANGUAGES CXX)
 set(CMAKE_VERBOSE_MAKEFILE, ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -20,6 +20,16 @@ endif()
 find_package(Qt5 COMPONENTS Core Quick Gui Network REQUIRED)
 get_filename_component(QT5_INSTALL_PREFIX "${Qt5Core_DIR}/../../.." ABSOLUTE)
 
+add_library(iotctl
+    src/iotctl_light.cpp
+    src/iotctl_http_client.cpp
+    src/iotctl_philips_hue_bridge_connection.cpp
+    )
+target_include_directories(iotctl
+    PUBLIC
+    include)
+target_link_libraries(iotctl PUBLIC Qt5::Core Qt5::Network)
+
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
     add_library(${PROJECT_NAME} SHARED "main.cpp" "qml.qrc")
     qt_android_build_apk(
@@ -33,13 +43,14 @@ else()
       main.cpp
       qml.qrc)
 endif()
-target_include_directories(${PROJECT_NAME}
-    PUBLIC
-    include)
 target_sources(${PROJECT_NAME}
-  PRIVATE
-  src/iotctl_light.cpp
-  src/iotctl_light_control.cpp
-  )
+    PRIVATE
+    src/iotctl_light_control.cpp
+    )
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core Qt5::Quick Qt5::Qml Qt5::Gui)
+target_link_libraries(${PROJECT_NAME} PRIVATE iotctl Qt5::Core Qt5::Quick Qt5::Qml Qt5::Gui)
+
+set(BUILD_EXAMPLES ON)
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
