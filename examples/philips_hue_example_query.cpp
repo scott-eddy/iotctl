@@ -4,9 +4,9 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
-    iotctl::HttpClient client;
-    client.SetUrl("https://discovery.meethue.com");
-    client.StartGetFromActiveUrl();
-    //iotctl::PhilipsHueBridgeConnection();
-    app.exec();
+    //iotctl::HttpClient client;
+    //client.SetUrl("https://discovery.meethue.com");
+    //client.StartGetFromActiveUrl();
+    iotctl::PhilipsHueBridgeConnection philips_hue_bridge;
+    //app.exec();
 }

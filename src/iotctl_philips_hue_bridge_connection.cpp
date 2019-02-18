@@ -8,6 +8,10 @@ constexpr char PhilipsHueBridgeConnection::kHueBridgeLocationUrl[];
 PhilipsHueBridgeConnection::PhilipsHueBridgeConnection() {
   client_.SetUrl(kHueBridgeLocationUrl);
   client_.StartGetFromActiveUrl();
-  //client_.BlockUntilGetComplete();
+  client_.BlockUntilGetComplete();
+}
+
+
+void PhilipsHueBridgeConnection::GetDeviceInfo() {
 }
 }

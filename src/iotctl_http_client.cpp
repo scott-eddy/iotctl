@@ -17,7 +17,7 @@ void HttpClient::BlockUntilGetComplete() {
   /* Create the QEventLoop */
    QEventLoop pause;
   /* connect the QHttp.requestFinished() Signal to the QEventLoop.quit() Slot */
-  connect(this, SIGNAL(HttpGetComplete), &pause, SLOT(quit()));
+  connect(this, &iotctl::HttpClient::HttpGetComplete, &pause, &QEventLoop::quit);
   /* Execute the QEventLoop - it will quit when the above finished due to the connect() */
    pause.exec();
 }

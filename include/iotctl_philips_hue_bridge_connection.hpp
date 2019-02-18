@@ -11,6 +11,8 @@ public:
 
     ~PhilipsHueBridgeConnection() = default;
 
+    void GetDeviceInfo();
+
 private:
 
     /**
