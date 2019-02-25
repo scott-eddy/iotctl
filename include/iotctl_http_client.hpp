@@ -88,6 +88,11 @@ private:
      */
     bool data_available_ = false;
 
+    /**
+     * @brief Storage for the last network transaction
+     */
+    QByteArray network_data_;
+
     size_t size_received_data_ = 0;
 };
 

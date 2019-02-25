@@ -20,6 +20,7 @@ void HttpClient::BlockUntilGetComplete() {
   connect(this, &iotctl::HttpClient::HttpGetComplete, &pause, &QEventLoop::quit);
   /* Execute the QEventLoop - it will quit when the above finished due to the connect() */
    pause.exec();
+  disconnect(this, &iotctl::HttpClient::HttpGetComplete, &pause, &QEventLoop::quit);
 }
 
 void HttpClient::StartGetFromActiveUrl() {
@@ -51,7 +52,6 @@ void HttpClient::HttpFinished() {
     }
 
     switch (ongoing_transaction_) {
-
       case TransactionType::GET:
         emit HttpGetComplete(size_received_data_);
         break;
