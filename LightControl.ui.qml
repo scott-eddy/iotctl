@@ -19,7 +19,7 @@ Page {
         onAccepted: light_control.color = color
         //onRejected:
         Component.onCompleted: visible = true
-        visible: true
+        visible: false
     }
     Slider {
         id: brightness_adjust
@@ -43,3 +43,8 @@ Page {
         onMoved: light_control.brightness = brightness_adjust.value
     }
 }
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

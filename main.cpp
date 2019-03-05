@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <iotctl_light_control.hpp>
+#include <iotctl_login_controller.h>
 
 int main(int argc, char *argv[])
 {
@@ -9,6 +10,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<iotctl::LightControl>("iotctl.light_control", 1, 0, "LightControl");
+    qmlRegisterType<iotctl::LoginController>("iotctl.login_controller", 1, 0, "LoginController");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

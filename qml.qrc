@@ -4,5 +4,6 @@
         <file>HomeForm.ui.qml</file>
         <file>LightControl.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>LoginPage.ui.qml</file>
     </qresource>
 </RCC>

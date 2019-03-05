@@ -8,7 +8,8 @@ Page {
     title: qsTr("Home")
 
     Label {
+        x: 235
+        y: 31
         text: "Welcome to iotctl!"
-        anchors.centerIn: parent
     }
 }
