@@ -13,8 +13,6 @@ FileSystemManger& FileSystemManger::GetInstance() {
 }
 
 FileSystemManger::FileSystemManger() :
-    kDataPathName {"/var/lib/iotctl"},
-    kLoginFileName{"login_info.json"},
     data_dir_(kDataPathName)
 {
     CreateDataDir();
@@ -23,14 +21,14 @@ FileSystemManger::FileSystemManger() :
 
 void FileSystemManger::CreateDataDir() {
     if(data_dir_.exists()) {
-      qDebug() << kLogTag << " Path: " << data_dir_.absolutePath() << " already exists";
+      qDebug() << kLogTag << "Path: " << data_dir_.absolutePath() << " already exists";
       return;
     }
 
     // Attempt to just make the directory
     auto success = data_dir_.mkpath(data_dir_.absolutePath());
     if(success) {
-        qDebug() << kLogTag << " Opened path: " << data_dir_.absolutePath();
+        qDebug() << kLogTag << "Opened path: " << data_dir_.absolutePath();
     } else {
         qWarning() << kLogTag << "Failed to open path: " << data_dir_.absolutePath();
         // Diagnose why
@@ -40,10 +38,8 @@ void FileSystemManger::CreateDataDir() {
             temp_dir_info.cdUp();
             info.setFile(temp_dir_info.absolutePath());
         }
-
         QString owner = info.owner();
-        qWarning() << kLogTag << " Path: " << temp_dir_info.absolutePath() << " is owned by: " << owner;
-
+        qWarning() << kLogTag << "Path: " << temp_dir_info.absolutePath() << "is owned by: " << owner;
     }
 }
 

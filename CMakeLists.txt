@@ -53,3 +53,5 @@ set(BUILD_EXAMPLES ON)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
+
+#TODO(escott) on Linux installs we want to create an accessible `/var/lib/iotctl`

@@ -21,12 +21,12 @@ private:
     /**
      * @brief kDataPath
      */
-    const char* kDataPathName;
+    const char* kDataPathName = "/var/lib/iotctl";
 
     /**
      * @brief File name that stores username/password
      */
-    const char* kLoginFileName;
+    const char* kLoginFileName = "login_info.json";
 
     static constexpr char kLogTag[] = "[FS Mgmt]";
 
