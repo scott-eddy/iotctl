@@ -6,6 +6,8 @@ Page {
     anchors.fill: parent
 
     title: qsTr("Login")
+    property alias passwordField: passwordField
+    property alias loginButton: loginButton
 
     Label {
         x: 235
@@ -14,6 +16,8 @@ Page {
     }
 
     GroupBox {
+        property bool isUserFieldValid: false
+        property bool isPasswordFieldValid: false
         id: groupBox
         x: 112
         y: 68
@@ -26,6 +30,7 @@ Page {
             x: 96
             y: 47
             placeholderText: qsTr("user")
+            onEditingFinished: (length > 0) ? groupBox.isUserFieldValid=true: groupBox.isUserFieldValid=false
         }
 
         TextField {
@@ -35,6 +40,7 @@ Page {
             placeholderText: qsTr("password")
             echoMode: TextInput.Password
             passwordCharacter: "*"
+            onEditingFinished: (length > 0) ? groupBox.isPasswordFieldValid=true: groupBox.isPasswordFieldValid=false
         }
 
         Button {
@@ -42,13 +48,17 @@ Page {
             x: 146
             y: 220
             text: qsTr("Login")
+            enabled: groupBox.isUserFieldValid && groupBox.isPasswordFieldValid
         }
     }
 
     LoginController {
         id: loginController
     }
+
 }
+
+
 
 
 
