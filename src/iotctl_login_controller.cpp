@@ -1,4 +1,5 @@
 #include "iotctl_login_controller.h"
+#include <QDebug>
 
 namespace iotctl {
 
@@ -6,7 +7,9 @@ LoginController::LoginController(QObject *parent) : QObject (parent){
 
 }
 
-void LoginController::LoginRequested(const QString& user, const QString& password) {
+void LoginController::loginRequested(const QString& user, const QString& password) {
+    qDebug() << "User: " << user;
+    qDebug() << "Password: " << password;
 
 }
 

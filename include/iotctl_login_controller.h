@@ -25,7 +25,7 @@ public slots:
     /**
      * @brief Nofification when a user/login combo has been entered by the user
      */
-    void LoginRequested(const QString& user, const QString& password);
+    void loginRequested(const QString& user, const QString& password);
 };
 
 } // iotctl

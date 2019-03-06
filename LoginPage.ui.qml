@@ -56,6 +56,13 @@ Page {
         id: loginController
     }
 
+    Connections {
+        target: loginButton
+        onClicked: {
+            loginController.loginRequested(userTextField.text, passwordField.text)
+        }
+    }
+
 }
 
 
