@@ -20,7 +20,8 @@ endif()
 find_package(Qt5 COMPONENTS Core Quick Gui Network REQUIRED)
 get_filename_component(QT5_INSTALL_PREFIX "${Qt5Core_DIR}/../../.." ABSOLUTE)
 
-add_library(iotctl
+add_library(iotctl 
+    src/iotctl_filesystem_manager.cpp
     src/iotctl_light.cpp
     src/iotctl_http_client.cpp
     src/iotctl_light_control.cpp
